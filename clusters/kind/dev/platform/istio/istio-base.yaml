@@ -13,3 +13,6 @@ spec:
         kind: HelmRepository
         name: istio
         namespace: platform-istio
+  values:
+    global:
+      istioNamespace: platform-istio

@@ -145,7 +145,7 @@ kubectl apply -f "$SYNC_PATH"
 
 echo "Kicking initial reconcile..."
 flux reconcile source git upstream || true
-flux reconcile kustomization sync-cluster-addons || t
+flux reconcile kustomization sync-cluster-addons || true
 echo
 echo "Bootstrap complete."
 echo "Check status with:"
