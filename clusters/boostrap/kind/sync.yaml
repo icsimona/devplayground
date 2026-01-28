@@ -4,7 +4,7 @@ metadata:
   name: kind-dev
   namespace: flux-system
 spec:
-  interval: 5m
+  interval: 1m
   path: ./clusters/kind/dev
   prune: true
   sourceRef:
