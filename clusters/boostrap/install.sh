@@ -49,6 +49,23 @@ else
   echo "kubectl installation complete."
 fi
 
+echo "Checking if helm is installed"
+if helm_version="$(helm version --short 2>/dev/null)"; then
+  echo "helm is installed."
+else
+  echo "helm is not installed. Installing.."
+  choco install kubernetes-helm
+  helm_version="$(helm version --short 2>/dev/null 2>&1)" || {
+    echo "Installation failed. Please install helm manually and run the script again."
+    exit 1
+  }
+  echo "Adding helm repos"
+  echo "helm installation complete."
+echo "Adding necessary helm repos"
+helm repo add istio https://istio-release.storage.googleapis.com/charts
+fi
+
+
 echo "Checking if kustomize is installed"
 if kustomize_version="$(kustomize version 2>/dev/null)"; then
   echo "kustomize version $kustomize_version is installed"
