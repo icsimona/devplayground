@@ -22,7 +22,6 @@ install_pkg_manager() {
   echo "Chocolatey installation complete: $(choco --version)"
 }
 
-# ensure <tool_cmd> <choco_pkg>
 install() {
   local cmd="$1"
   local pkg="$2"
@@ -49,7 +48,6 @@ add_helm_repo() {
 
   helm repo update
 }
-
 
 main() {
   install_pkg_manager
